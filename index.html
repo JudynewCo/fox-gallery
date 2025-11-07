@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Demonstration for hamster-gallery">
+
+  <style>
+    :root, html, body {
+      margin: var(--ddd-spacing-0);
+      padding: var(--ddd-spacing-0);
+    }
+    #demo {
+      margin: var(--ddd-spacing-2);
+    }
+    hamster-gallery {
+      margin: var(--ddd-spacing-2);
+      border: var(--ddd-border-md);
+      border-radius: var(--ddd-radius-lg);
+    }
+    hamster-gallery:hover {
+      box-shadow: var(--ddd-boxShadow-sm);
+    }
+    #example {
+      --hamster-gallery-font-size: var(--ddd-font-size-l);
+      background-color: var(--ddd-accent-2);
+      color: var(--ddd-primary-17);
+    }
+  </style>
+  <title>hamster-gallery</title>
+</head>
+
+<body>
+  <div id="demo">
+    <h1>hamstergram</h1>
+    <!-- this is going to do whatever the tag's defaults are -->
+    <h2>Default</h2>
+    <hamster-gallery></hamster-gallery>
+    <h2>Slot usage</h2>
+    <hamster-gallery data-accent="2" data-primary="17"><div>Sample slot content</div></hamster-gallery>
+    <h2>Property usage</h2>
+    <hamster-gallery id="example" title="Sample property title"></hamster-gallery>
+  </div>
+  <script type="module" src="./hamster-gallery.js"></script>
+
+  <!-- Take HAX, the Web and you further down the rabbit hole -->
+  <style>
+    #follow-the-white-rabbit {
+      margin: var(--ddd-spacing-4) auto var(--ddd-spacing-16)  var(--ddd-spacing-4);
+      background-color: var(--ddd-accent-4);
+      color: var(--ddd-theme-default-coalyGray);
+    }
+    #follow-the-white-rabbit[open] summary {
+      background-color: var(--ddd-accent-4) !important;
+      color: var(--ddd-theme-default-coalyGray);
+    }
+    #follow-the-white-rabbit[open] .content {
+      padding: var(--ddd-spacing-0) var(--ddd-spacing-4);
+    }
+    #follow-the-white-rabbit ul,
+    #follow-the-white-rabbit li {
+      padding: var(--ddd-spacing-0);
+      margin: var(--ddd-spacing-0);
+    }
+    #follow-the-white-rabbit li {
+      font-size: var(--ddd-font-size-xs);
+      list-style: none;
+    }
+    #follow-the-white-rabbit li strong,
+    #follow-the-white-rabbit li a {
+      padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
+      color: var(--ddd-theme-default-coalyGray);
+      display: block;
+      font-weight: var(--ddd-font-weight-bold);
+    }
+    #follow-the-white-rabbit li:focus-within a,
+    #follow-the-white-rabbit li:hover a {
+      background-color: var(--ddd-theme-default-coalyGray);
+      color: var(--ddd-theme-default-globalNeon);
+    }
+  </style>
+  <details id="follow-the-white-rabbit" open>
+    <summary>How to Develop</summary>
+  </details>
+</body>
+</html>
