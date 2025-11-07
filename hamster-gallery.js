@@ -112,7 +112,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
 
   async loadData() {
     try {
-      const res = await fetch("./data/post.json");
+      const res = await fetch("./data/hamster.json");
       const data = await res.json();
       this.posts = data.posts.sort(
         (a, b) => new Date(b.date) - new Date(a.date)

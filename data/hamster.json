@@ -212,7 +212,7 @@
       "id": 13,
       "userId": 6,
       "postImages": [
-        "img/John/JohnPlayerTheGuitar.webp",
+        "img/John/JohnPlayTheGuitar.webp",
         "img/John/JohnProduceMusic.webp"
       ],
       "desc": "Late-night tunes with my trusty guitar. 🎸✨",
@@ -224,7 +224,7 @@
       "id": 14,
       "userId": 7,
       "postImages": [
-        "img/Lucy/LucyTillAndSo.webp",
+        "img/Lucy/LucyTillAndSow.webp",
         "img/Lucy/LucyPlantFlowers.webp"
       ],
       "desc": "Nothing beats the joy of planting new blooms. 🌷🌼",
@@ -292,7 +292,7 @@
     {
       "id": 21,
       "userId": 11,
-      "postImages": "img/MunchkinAtTheGrandOpening.webp",
+      "postImages": "img/Munchkin/MunchkinsAtTheGrandOpening.webp",
       "desc": "Grand opening day! Thank you all for coming. 🥳🎀",
       "date": "2025-10-09T11:00:00Z",
       "likes": 512,
@@ -301,7 +301,7 @@
     {
       "id": 22,
       "userId": 12,
-      "postImages": "img/Nibbles/NibblesPaintingADetailedPortait.webp",
+      "postImages": "img/Nibbles/NibblesPaintingADetailedPortrait.webp",
       "desc": "Painting a portrait is a delight. 🖌️🐹",
       "date": "2025-10-08T17:45:00Z",
       "likes": 598,
