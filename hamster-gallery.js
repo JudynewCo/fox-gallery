@@ -71,46 +71,143 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
         .user-nav {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          width: 150px;
-          background: var(--ddd-accent-1);
+          align-items: flex-start;
+          width: 180px;
+          border: var(--ddd-border-sm);
           border-radius: var(--ddd-radius-md);
-          padding: var(--ddd-spacing-2);
+          padding-inline: var(--ddd-spacing-6);
+          padding-block: var(--ddd-spacing-12);
+          gap: 1.5rem;
         }
 
         .user-item {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
+          gap: 0.75rem;
           margin-bottom: var(--ddd-spacing-2);
           cursor: pointer;
         }
 
         .user-item img {
-          width: 48px;
-          height: 48px;
+          width: 64px;
+          height: 64px;
           border-radius: 50%;
           object-fit: cover;
           margin-bottom: 0.5rem;
         }
+        .user-item span {
+          font-size: var(--ddd-font-size-sm);
+        }
 
         /* Post Feed */
-        .post-feed {
-          flex: 1;
+        .post-card {
+          background: white;
           display: flex;
           flex-direction: column;
-          gap: 1.5rem;
+          margin-inline: var(--ddd-spacing-6);
+          margin-bottom: var(--ddd-spacing-6);
+        }
+
+        .single-post {
+          border: var(--ddd-border-sm);
+          border-radius: var(--ddd-radius-md);
+          padding-inline: var(--ddd-spacing-24);
+          padding-block: var(--ddd-spacing-6);
+          display: flex;
+          flex-direction: column;
+          gap: var(--ddd-spacing-6);
+        }
+
+        .post-header {
+          display: flex;
+          align-items: center;
+          gap: var(--ddd-spacing-3);
+        }
+
+        .profile-img {
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .user-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .user-name {
+          font-size: var(--ddd-font-size-m);
+          margin: 0;
+          font-weight: medium;
+        }
+
+        .user-role {
+          font-size: var(--ddd-font-size-s);
+          color: var(--ddd-theme-default-gray);
+          margin: 0;
+        }
+
+        .carousel {
+          display: flex;
+          overflow-x: auto;
+          gap: 0.5rem;
+          scroll-snap-type: x mandatory;
+        }
+
+        .carousel img {
+          width: 100%;
+          border-radius: var(--ddd-radius-md);
+          scroll-snap-align: start;
+        }
+
+        .single-image img {
+          width: 100%;
+          border-radius: var(--ddd-radius-md);
+        }
+
+        .caption {
+          margin: 0;
+          font-size: var(--ddd-font-size-s);
+          line-height: 1.4;
+        }
+
+        .post-actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .like-btn,
+        .share-btn {
+          background: none;
+          border: none;
+          font-size: var(--ddd-font-size-s);
+          cursor: pointer;
+          color: var(--ddd-theme-default-coalyGray);
+        }
+
+        .like-btn.liked {
+          color: red;
+        }
+
+        .like-btn:active,
+        .share-btn:active {
+          transform: scale(1.1);
         }
 
         .load-more {
-          align-self: center;
-          margin-top: var(--ddd-spacing-4);
-          padding: 0.75rem 1.5rem;
-          font-size: 1rem;
+          display: block;
+          font-size: var(--ddd-font-size-m);
           background: var(--ddd-theme-primary);
-          color: white;
-          border: none;
+          color: black;
+          width: stretch;
+          border: var(--ddd-border-sm);
           border-radius: var(--ddd-radius-md);
+          margin: var(--ddd-spacing-12);
+          padding: var(--ddd-spacing-6);
           cursor: pointer;
         }
 
@@ -119,7 +216,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         /* Mobile view */
-        @media (max-width: 768px) {
+        @media (max-width: 800px) {
           .container {
             flex-direction: column;
           }
@@ -135,6 +232,10 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           .user-item {
             flex-direction: column;
             min-width: 80px;
+          }
+          .user-item img {
+            width: 48px;
+            height: 48px;
           }
         }
       `,
@@ -175,39 +276,55 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     `;
   }
 
-  // rende r a single post
+  // render a single post
   renderPost(post) {
     const user = this.users.find((u) => u.id === post.userId) || {};
+
     return html`
-      <div class="post-header">
-        <img
-          src="${user.profileImage}"
-          alt="${user.name}"
-          class="profile-img"
-        />
-        <div>
-          <h4>${user.name}</h4>
-          <small>${new Date(post.date).toLocaleDateString()}</small>
-        </div>
-      </div>
-
-      ${Array.isArray(post.postImages)
-        ? html`
-            <div class="carousel">
-              ${post.postImages.map(
-                (img) => html`<img src="${img}" alt="Hamster photo" />`
-              )}
+      <article class="post-card">
+        <div class="single-post">
+          <!-- HEADER -->
+          <header class="post-header">
+            <img
+              src="${user.profileImage}"
+              alt="${user.name}"
+              class="profile-img"
+            />
+            <div class="user-info">
+              <h4 class="user-name">${user.name}</h4>
+              <p class="user-role">${user.role}</p>
             </div>
-          `
-        : html`<img src="${post.postImages}" alt="Hamster photo" />`}
+          </header>
 
-      <p>${post.desc}</p>
-      <div class="actions">
-        <button @click=${() => this.toggleLike(post)}>
-          ${post.likedByUser ? "❤️" : "🤍"} ${post.likes}
-        </button>
-        <button @click=${() => this.sharePost(post)}>🔗 Share</button>
-      </div>
+          <!-- POST IMAGE(S) -->
+          ${Array.isArray(post.postImages)
+            ? html`
+                <div class="carousel">
+                  ${post.postImages.map(
+                    (img) => html`<img src="${img}" alt="Post image" />`
+                  )}
+                </div>
+              `
+            : html`
+                <div class="single-image">
+                  <img src="${post.postImages}" alt="Post image" />
+                </div>
+              `}
+
+          <!-- CAPTION -->
+          <p class="caption">${post.desc}</p>
+
+          <!-- ACTIONS -->
+          <footer class="post-actions">
+            <button class="like-btn" @click=${() => this.toggleLike(post)}>
+              ${post.likedByUser ? "❤️" : "🤍"} ${post.likes}
+            </button>
+            <button class="share-btn" @click=${() => this.sharePost(post)}>
+              🔗 share
+            </button>
+          </footer>
+        </div>
+      </article>
     `;
   }
 

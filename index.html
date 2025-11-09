@@ -22,12 +22,10 @@
         padding: var(--ddd-spacing-0);
       }
       #demo {
-        margin: var(--ddd-spacing-16);
+        margin-inline: var(--ddd-spacing-16);
       }
       hamster-gallery {
         margin: var(--ddd-spacing-2);
-        border: var(--ddd-border-md);
-        border-radius: var(--ddd-radius-lg);
       }
       hamster-gallery:hover {
         box-shadow: var(--ddd-boxShadow-sm);
@@ -39,13 +37,12 @@
       }
       .header {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        gap: 1.5em;
         align-items: center;
-        padding: var(--ddd-spacing-3);
-        border-bottom: 2px solid var(--ddd-accent-2);
       }
       .logo {
-        height: 60px;
+        height: 72px;
       }
       .logo-text {
         font-family: "Playwrite HU", cursive;
@@ -57,8 +54,8 @@
   <body>
     <div id="demo">
       <div class="header">
-        <h1 class="logo-text">hamstergram</h1>
         <img src="img/logo.jpg" alt="Hamstergram Logo" class="logo" />
+        <h1 class="logo-text">hamstergram</h1>
       </div>
       <!-- this is going to do whatever the tag's defaults are -->
       <hamster-gallery></hamster-gallery>
@@ -102,8 +99,5 @@
         color: var(--ddd-theme-default-globalNeon);
       }
     </style>
-    <details id="follow-the-white-rabbit" open>
-      <summary>Load More</summary>
-    </details>
   </body>
 </html>
