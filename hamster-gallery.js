@@ -60,11 +60,15 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           min-height: 100vh;
         }
 
+        .hamster-gallery {
+          margin: var(--ddd-spacing-24);
+        }
+
         .container {
           display: flex;
           flex-direction: row;
           gap: 1rem;
-          margin: var(--ddd-spacing-3);
+          margin-inline: var(--ddd-spacing-24);
         }
 
         /* Side Nav (Desktop) */
@@ -214,21 +218,100 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
         .load-more:hover {
           background: var(--ddd-theme-primary-hover);
         }
+        /* Mobile view */
+        @media (max-width: 1280px) {
+          .container {
+            margin: var(--ddd-spacing-6);
+          }
+
+          .load-more {
+            display: block;
+            font-size: var(--ddd-font-size-s);
+            width: stretch;
+            margin: 0 var(--ddd-spacing-12);
+          }
+        }
 
         /* Mobile view */
+        @media (max-width: 1080px) {
+          .container {
+            margin: var(--ddd-spacing-6);
+          }
+          .user-item img {
+            width: 48px;
+            height: 48px;
+          }
+          .post-card {
+            margin-inline: var(--ddd-spacing-1);
+          }
+
+          .single-post {
+            padding-inline: var(--ddd-spacing-12);
+            padding-block: var(--ddd-spacing-6);
+            display: flex;
+            flex-direction: column;
+            gap: var(--ddd-spacing-6);
+          }
+
+          .post-header {
+            gap: var(--ddd-spacing-3);
+          }
+
+          .profile-img {
+            width: 48px;
+            height: 48px;
+          }
+
+          .user-name {
+            font-size: var(--ddd-font-size-s);
+          }
+
+          .user-role {
+            font-size: var(--ddd-font-size-sm);
+          }
+
+          .caption {
+            font-size: var(--ddd-font-size-sm);
+          }
+
+          .like-btn,
+          .share-btn {
+            font-size: var(--ddd-font-size-sm);
+          }
+
+          .like-btn.liked {
+            color: red;
+          }
+
+          .like-btn:active,
+          .share-btn:active {
+            transform: scale(1.1);
+          }
+
+          .load-more {
+            display: block;
+            font-size: var(--ddd-font-size-s);
+            width: stretch;
+            margin: 0 var(--ddd-spacing-2);
+          }
+        }
+
         @media (max-width: 800px) {
           .container {
             flex-direction: column;
+            margin-inline: var(--ddd-spacing-12);
           }
 
           .user-nav {
             flex-direction: row;
-            width: 100%;
+            width: stretch;
             overflow-x: auto;
             justify-content: start;
-            gap: 1rem;
+            gap: 0.75rem;
           }
-
+          .post-card {
+            margin-inline: 0;
+          }
           .user-item {
             flex-direction: column;
             min-width: 80px;
@@ -236,6 +319,15 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           .user-item img {
             width: 48px;
             height: 48px;
+          }
+          .user-item span {
+            font-size: var(--ddd-font-size-xxs);
+          }
+        }
+        @media (max-width: 480px) {
+          .container {
+            flex-direction: column;
+            margin: var(--ddd-spacing-2);
           }
         }
       `,
