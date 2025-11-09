@@ -60,6 +60,13 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           min-height: 100vh;
         }
 
+        @media (prefers-color-scheme: dark) {
+          :host {
+            background-color: var(--ddd-theme-default-black);
+            color: var(--ddd-theme-default-white);
+          }
+        }
+
         .hamster-gallery {
           margin: var(--ddd-spacing-24);
         }
@@ -106,7 +113,6 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
 
         /* Post Feed */
         .post-card {
-          background: white;
           display: flex;
           flex-direction: column;
           margin-inline: var(--ddd-spacing-6);
@@ -212,7 +218,6 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           display: block;
           font-size: var(--ddd-font-size-m);
           background: var(--ddd-theme-primary);
-          color: black;
           width: stretch;
           border: var(--ddd-border-sm);
           border-radius: var(--ddd-radius-md);
@@ -464,4 +469,3 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
 }
 
 globalThis.customElements.define(HamsterGallery.tag, HamsterGallery);
-
