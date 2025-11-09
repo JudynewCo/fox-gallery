@@ -183,7 +183,13 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           justify-content: space-between;
           align-items: center;
         }
-
+        .time {
+          display: inline-block;
+          font-size: var(--ddd-font-size-sm);
+        }
+        .btns {
+          display: flex;
+        }
         .like-btn,
         .share-btn {
           background: none;
@@ -371,6 +377,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
   // render a single post
   renderPost(post) {
     const user = this.users.find((u) => u.id === post.userId) || {};
+    const date = new Date(post.date);
 
     return html`
       <article class="post-card">
@@ -406,14 +413,22 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           <!-- CAPTION -->
           <p class="caption">${post.desc}</p>
 
-          <!-- ACTIONS -->
+          <!-- FOOTER -->
           <footer class="post-actions">
-            <button class="like-btn" @click=${() => this.toggleLike(post)}>
-              ${post.likedByUser ? "❤️" : "🤍"} ${post.likes}
-            </button>
-            <button class="share-btn" @click=${() => this.sharePost(post)}>
-              🔗 share
-            </button>
+            <span class="time">
+              ${date.toLocaleDateString(undefined, {
+                month: "short",
+                day: "numeric",
+              })}
+            </span>
+            <span class="btns">
+              <button class="like-btn" @click=${() => this.toggleLike(post)}>
+                ${post.likedByUser ? "❤️" : "🤍"} ${post.likes}
+              </button>
+              <button class="share-btn" @click=${() => this.sharePost(post)}>
+                🔗 share
+              </button>
+            </span>
           </footer>
         </div>
       </article>
@@ -449,3 +464,4 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
 }
 
 globalThis.customElements.define(HamsterGallery.tag, HamsterGallery);
+
