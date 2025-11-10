@@ -28,19 +28,20 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     const res = await fetch(new URL("./hamster.json", import.meta.url).href);
     const data = await res.json();
 
+    // Get the base path where this module is located
+    const basePath = new URL("./", import.meta.url).href;
+
     this.users = data.users.map((user) => ({
       ...user,
-      profileImage: new URL(`./${user.profileImage}`, import.meta.url).href,
+      profileImage: new URL(user.profileImage, basePath).href,
     }));
 
     this.posts = data.posts
       .map((post) => ({
         ...post,
         postImages: Array.isArray(post.postImages)
-          ? post.postImages.map(
-              (img) => new URL(`./${img}`, import.meta.url).href
-            )
-          : new URL(`./${post.postImages}`, import.meta.url).href,
+          ? post.postImages.map((img) => new URL(img, basePath).href)
+          : new URL(post.postImages, basePath).href,
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
