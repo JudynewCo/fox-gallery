@@ -25,23 +25,44 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     this.postsPerLoad = 3;
   }
 
+  resolvePath(path) {
+    if (!path) return path;
+    if (path.startsWith("http://") || path.startsWith("https://")) return path;
+    if (path.startsWith("/")) return path;
+    // your JSON has "img/...", but files are served from /img/ after build
+    return `/${path}`;
+  }
+
   async loadData() {
     const res = await fetch(new URL("./hamster.json", import.meta.url).href);
     const data = await res.json();
-
     this.users = data.users.map((user) => ({
       ...user,
-      profileImage: new URL(user.profileImage, import.meta.url).href,
+      profileImage: this.resolvePath(user.profileImage),
     }));
 
     this.posts = data.posts
       .map((post) => ({
         ...post,
         postImages: Array.isArray(post.postImages)
-          ? post.postImages.map((img) => new URL(img, import.meta.url).href)
-          : new URL(post.postImages, import.meta.url).href,
+          ? post.postImages.map((img) => this.resolvePath(img))
+          : this.resolvePath(post.postImages),
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // this.users = data.users.map((user) => ({
+    //   ...user,
+    //   profileImage: new URL(user.profileImage, import.meta.url).href,
+    // }));
+
+    // this.posts = data.posts
+    //   .map((post) => ({
+    //     ...post,
+    //     postImages: Array.isArray(post.postImages)
+    //       ? post.postImages.map((img) => new URL(img, import.meta.url).href)
+    //       : new URL(post.postImages, import.meta.url).href,
+    //   }))
+    //   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
   }
