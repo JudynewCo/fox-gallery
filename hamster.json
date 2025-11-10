@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Bella",
       "role": "TheArtist",
-      "profileImage": "/img/Bella/BellaTheArtist.webp"
+      "profileImage": "./img/Bella/BellaTheArtist.webp"
     },
     {
       "id": 2,
