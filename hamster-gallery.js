@@ -26,7 +26,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   async loadData() {
-    const res = await fetch("/hamster.json");
+    const res = await fetch("./hamster.json");
     const data = await res.json();
 
     this.users = data.users.map((user) => ({
