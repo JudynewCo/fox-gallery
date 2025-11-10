@@ -20,7 +20,7 @@
   "module": "hamster-gallery.js",
   "scripts": {
     "start": "web-dev-server",
-    "build": "npm run ddd:build && cp -r data dist/data",
+    "build": "rimraf public && rollup -c rollup.config.js && npm run analyze",
     "analyze": "cem analyze --litelement --exclude public",
     "dddaudit": "hax audit",
     "release": "npm run build && commit-and-tag-version && git push --follow-tags origin main && npm publish",
@@ -59,3 +59,5 @@
   },
   "customElements": "custom-elements.json"
 }
+
+
