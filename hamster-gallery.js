@@ -17,6 +17,14 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     return "hamster-gallery";
   }
 
+  // turn "img/..." into "/img/..." unless it's already absolute
+  resolvePath(path) {
+    if (!path) return path;
+    if (path.startsWith("http://") || path.startsWith("https://")) return path;
+    if (path.startsWith("/")) return path;
+    return `/${path}`; // this is the key line
+  }
+
   constructor() {
     super();
     this.posts = [];
@@ -24,21 +32,42 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     this.visiblePosts = [];
     this.postsPerLoad = 3;
   }
+  // async loadData() {
+  //   const res = await fetch(new URL("./hamster.json", import.meta.url).href);
+  //   const data = await res.json();
+
+  //   this.users = data.users.map((user) => ({
+  //     ...user,
+  //     profileImage: new URL(user.profileImage, import.meta.url).href,
+  //   }));
+
+  //   this.posts = data.posts
+  //     .map((post) => ({
+  //       ...post,
+  //       postImages: Array.isArray(post.postImages)
+  //         ? post.postImages.map((img) => new URL(img, import.meta.url).href)
+  //         : new URL(post.postImages, import.meta.url).href,
+  //     }))
+  //     .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  //   this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
+  // }
   async loadData() {
+    // hamster.json is bundled/served next to your component or via public path
     const res = await fetch(new URL("./hamster.json", import.meta.url).href);
     const data = await res.json();
 
     this.users = data.users.map((user) => ({
       ...user,
-      profileImage: new URL(user.profileImage, import.meta.url).href,
+      profileImage: this.resolvePath(user.profileImage),
     }));
 
     this.posts = data.posts
       .map((post) => ({
         ...post,
         postImages: Array.isArray(post.postImages)
-          ? post.postImages.map((img) => new URL(img, import.meta.url).href)
-          : new URL(post.postImages, import.meta.url).href,
+          ? post.postImages.map((img) => this.resolvePath(img))
+          : this.resolvePath(post.postImages),
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
