@@ -4,85 +4,85 @@
       "id": 1,
       "name": "Bella",
       "role": "TheArtist",
-      "profileImage": "Img/Bella/BellaTheArtist.webp"
+      "profileImage": "img/Bella/BellaTheArtist.webp"
     },
     {
       "id": 2,
       "name": "Flash",
       "role": "TheSprinter",
-      "profileImage": "Img/Flash/FlashTheSprinter.webp"
+      "profileImage": "img/Flash/FlashTheSprinter.webp"
     },
     {
       "id": 3,
       "name": "Fluffy",
       "role": "TheGourmet",
-      "profileImage": "Img/Fluffy/FluffyTheGourmet.webp"
+      "profileImage": "img/Fluffy/FluffyTheGourmet.webp"
     },
     {
       "id": 4,
       "name": "Gizmo",
       "role": "TheInventor",
-      "profileImage": "Img/Gizmo/GizmoTheInventor.webp"
+      "profileImage": "img/Gizmo/GizmoTheInventor.webp"
     },
     {
       "id": 5,
       "name": "Hammy",
       "role": "TheExplorer",
-      "profileImage": "Img/Hammy/HammyTheExplorer.webp"
+      "profileImage": "img/Hammy/HammyTheExplorer.webp"
     },
     {
       "id": 6,
       "name": "John",
       "role": "TheDJ",
-      "profileImage": "Img/John/JohnTheDJ.webp"
+      "profileImage": "img/John/JohnTheDJ.webp"
     },
     {
       "id": 7,
       "name": "Lucy",
       "role": "TheGardener",
-      "profileImage": "Img/Lucy/LucyTheGardener.webp"
+      "profileImage": "img/Lucy/LucyTheGardener.webp"
     },
     {
       "id": 8,
       "name": "Mary",
       "role": "TheProfessor",
-      "profileImage": "Img/Mary/MaryTheProfessor.webp"
+      "profileImage": "img/Mary/MaryTheProfessor.webp"
     },
     {
       "id": 9,
       "name": "MightyPaws",
       "role": "TheAthlete",
-      "profileImage": "Img/MightyPaws/MightyPawsTheAthlete.webp"
+      "profileImage": "img/MightyPaws/MightyPawsTheAthlete.webp"
     },
     {
       "id": 10,
       "name": "Mike",
       "role": "TheAstronaut",
-      "profileImage": "Img/Mike/MikeTheAstronaut.webp"
+      "profileImage": "img/Mike/MikeTheAstronaut.webp"
     },
     {
       "id": 11,
       "name": "Munchkin",
       "role": "TheMayor",
-      "profileImage": "Img/Munchkin/MunchkinTheMayor.webp"
+      "profileImage": "img/Munchkin/MunchkinTheMayor.webp"
     },
     {
       "id": 12,
       "name": "Nibbles",
       "role": "TheArtist",
-      "profileImage": "Img/Nibbles/NibblesTheArtist.webp"
+      "profileImage": "img/Nibbles/NibblesTheArtist.webp"
     },
     {
       "id": 13,
       "name": "SirWhiskers",
       "role": "TheExplorer",
-      "profileImage": "Img/SirWhiskers/SirWhiskersTheExplorer.webp"
+      "profileImage": "img/SirWhiskers/SirWhiskersTheExplorer.webp"
     },
     {
       "id": 14,
       "name": "Spike",
       "role": "TheAdventurer",
-      "profileImage": "Img/Spike/SpikeTheAdventurer.webp"
+      "profileImage": "img/Spike/SpikeTheAdventurer.webp"
     }
   ],
 
@@ -90,7 +90,7 @@
     {
       "id": 1,
       "userId": 1,
-      "postImages": "Img/Bella/BellaDeeplyFocused.webp",
+      "postImages": "img/Bella/BellaDeeplyFocused.webp",
       "desc": "Every brushstroke tells a tiny story. 🎨🐹",
       "date": "2025-09-06T15:32:00Z",
       "likes": 482,
@@ -99,7 +99,7 @@
     {
       "id": 2,
       "userId": 1,
-      "postImages": "Img/Bella/BellaNewPaintingTechnique.webp",
+      "postImages": "img/Bella/BellaNewPaintingTechnique.webp",
       "desc": "Tried a new painting technique today with messy paws and a happy heart! 💕",
       "date": "2025-11-04T19:10:00Z",
       "likes": 537,
@@ -108,7 +108,7 @@
     {
       "id": 3,
       "userId": 1,
-      "postImages": "Img/Bella/BellaSculptingATinyMasterpiece.webp",
+      "postImages": "img/Bella/BellaSculptingATinyMasterpiece.webp",
       "desc": "Working on my latest sculpture! Clay under the claws feels therapeutic. 🐾",
       "date": "2025-10-01T12:05:00Z",
       "likes": 462,
@@ -118,8 +118,8 @@
       "id": 4,
       "userId": 2,
       "postImages": [
-        "Img/Flash/FlashInFullSpeed.webp",
-        "Img/Flash/FlashTakingAMoment.webp"
+        "img/Flash/FlashInFullSpeed.webp",
+        "img/Flash/FlashTakingAMoment.webp"
       ],
       "desc": "Speed isn’t everything. Sometimes you have to pause and appreciate the breeze. 💨",
       "date": "2025-10-31T21:45:00Z",
@@ -130,9 +130,9 @@
       "id": 5,
       "userId": 3,
       "postImages": [
-        "Img/Fluffy/FluffyDecorateCupcakes.webp",
-        "Img/Fluffy/FluffyBakingCupcakes.webp",
-        "Img/Fluffy/FluffyHostingATeaparty.webp"
+        "img/Fluffy/FluffyDecorateCupcakes.webp",
+        "img/Fluffy/FluffyBakingCupcakes.webp",
+        "img/Fluffy/FluffyHostingATeaparty.webp"
       ],
       "desc": "Cupcake day! Sprinkles, frosting, and endless giggles. 🧁✨",
       "date": "2025-09-30T17:22:00Z",
@@ -143,8 +143,8 @@
       "id": 6,
       "userId": 3,
       "postImages": [
-        "Img/Fluffy/FluffyCarefullyAssembling.webp",
-        "Img/Fluffy/FluffyHostingALavishDinnerParty.webp"
+        "img/Fluffy/FluffyCarefullyAssembling.webp",
+        "img/Fluffy/FluffyHostingALavishDinnerParty.webp"
       ],
       "desc": "A night of candles, chatter, and comfort food. 🍽️",
       "date": "2025-10-29T20:12:00Z",
@@ -154,7 +154,7 @@
     {
       "id": 7,
       "userId": 3,
-      "postImages": "Img/Fluffy/FluffyEnjoyingAPicnicOutdoors.webp",
+      "postImages": "img/Fluffy/FluffyEnjoyingAPicnicOutdoors.webp",
       "desc": "Fresh grass, sunshine, and fresh fruits. That's the perfect picnic vibes. 🌿🍓",
       "date": "2025-10-27T11:48:00Z",
       "likes": 489,
@@ -163,7 +163,7 @@
     {
       "id": 8,
       "userId": 4,
-      "postImages": "Img/Gizmo/GizmoConstructingATinyInnovativeVehicle.webp",
+      "postImages": "img/Gizmo/GizmoConstructingATinyInnovativeVehicle.webp",
       "desc": "Prototype vehicle is rolling smoothly! Who says hamsters can’t innovate? 🚗✨",
       "date": "2025-11-02T14:00:00Z",
       "likes": 621,
@@ -172,7 +172,7 @@
     {
       "id": 9,
       "userId": 4,
-      "postImages": "Img/Gizmo/GizmoExperimentingWithANewSustainableEnergySource.webp",
+      "postImages": "img/Gizmo/GizmoExperimentingWithANewSustainableEnergySource.webp",
       "desc": "Trying to power my wheel with sun power. Science never rests. ☀️🔋",
       "date": "2025-10-23T18:55:00Z",
       "likes": 582,
@@ -181,7 +181,7 @@
     {
       "id": 10,
       "userId": 4,
-      "postImages": "Img/Gizmo/GizmoWorkingOnAEquippedWorkshop.webp",
+      "postImages": "img/Gizmo/GizmoWorkingOnAEquippedWorkshop.webp",
       "desc": "Tidy workspace, tidy mind. Today’s project: mini-robot construction. 🤖",
       "date": "2025-09-22T10:22:00Z",
       "likes": 511,
@@ -190,7 +190,7 @@
     {
       "id": 11,
       "userId": 5,
-      "postImages": "Img/Hammy/HammyInDesert.webp",
+      "postImages": "img/Hammy/HammyInDesert.webp",
       "desc": "Exploring the endless dunes. The world feels so big when your paws are small. 🏜️",
       "date": "2025-10-20T09:30:00Z",
       "likes": 724,
@@ -200,8 +200,8 @@
       "id": 12,
       "userId": 5,
       "postImages": [
-        "Img/Hammy/HammyOnACaveTour.webp",
-        "Img/Hammy/HammyOnABoat.webp"
+        "img/Hammy/HammyOnACaveTour.webp",
+        "img/Hammy/HammyOnABoat.webp"
       ],
       "desc": "From cave echoes to river ripples — another adventure in the books! 🌊",
       "date": "2025-08-19T20:41:00Z",
@@ -212,8 +212,8 @@
       "id": 13,
       "userId": 6,
       "postImages": [
-        "Img/John/JohnPlayTheGuitar.webp",
-        "Img/John/JohnProduceMusic.webp"
+        "img/John/JohnPlayTheGuitar.webp",
+        "img/John/JohnProduceMusic.webp"
       ],
       "desc": "Late-night tunes with my trusty guitar. 🎸✨",
       "date": "2025-10-18T23:02:00Z",
@@ -224,8 +224,8 @@
       "id": 14,
       "userId": 7,
       "postImages": [
-        "/Img/Lucy/LucyTillAndSow.webp",
-        "/Img/Lucy/LucyPlantFlowers.webp"
+        "/img/Lucy/LucyTillAndSow.webp",
+        "/img/Lucy/LucyPlantFlowers.webp"
       ],
       "desc": "Nothing beats the joy of planting new blooms. 🌷🌼",
       "date": "2025-05-17T13:16:00Z",
@@ -236,8 +236,8 @@
       "id": 15,
       "userId": 7,
       "postImages": [
-        "Img/Lucy/LucyWateringFlowers.webp",
-        "Img/Lucy/LucyOnACozyHammock.webp"
+        "img/Lucy/LucyWateringFlowers.webp",
+        "img/Lucy/LucyOnACozyHammock.webp"
       ],
       "desc": "After watering comes resting. A perfect lazy afternoon. 🌞🌺",
       "date": "2025-09-16T15:48:00Z",
@@ -247,7 +247,7 @@
     {
       "id": 16,
       "userId": 8,
-      "postImages": "Img/Mary/MaryFindABook.webp",
+      "postImages": "img/Mary/MaryFindABook.webp",
       "desc": "Found an amazing book of cytology, can’t wait to get lost in the cells. 📚",
       "date": "2025-09-15T10:10:00Z",
       "likes": 397,
@@ -256,7 +256,7 @@
     {
       "id": 17,
       "userId": 8,
-      "postImages": "Img/Mary/MaryDoingChemistryExperiment.webp",
+      "postImages": "img/Mary/MaryDoingChemistryExperiment.webp",
       "desc": "When curiosity sparks, magic happens. 🧪💫",
       "date": "2025-10-14T17:39:00Z",
       "likes": 436,
@@ -265,7 +265,7 @@
     {
       "id": 18,
       "userId": 9,
-      "postImages": "Img/MightyPaws/MightyPawsIntenselyFocused.webp",
+      "postImages": "img/MightyPaws/MightyPawsIntenselyFocused.webp",
       "desc": "Focus mode: ON. Training for the tiny triathlon! 💪",
       "date": "2025-10-13T09:50:00Z",
       "likes": 694,
@@ -274,7 +274,7 @@
     {
       "id": 19,
       "userId": 9,
-      "postImages": "Img/MightyPaws/MightyPawsSkillfullyNavigating.webp",
+      "postImages": "img/MightyPaws/MightyPawsSkillfullyNavigating.webp",
       "desc": "Precision, patience, and speed are my secret to success. 🔥",
       "date": "2025-10-12T14:33:00Z",
       "likes": 672,
@@ -283,7 +283,7 @@
     {
       "id": 20,
       "userId": 10,
-      "postImages": "Img/Mike/MikeOnTheMoon.webp",
+      "postImages": "img/Mike/MikeOnTheMoon.webp",
       "desc": "One small step for a hamster, one giant leap for hamsterkind. 🌕🚀",
       "date": "2025-09-10T22:45:00Z",
       "likes": 802,
@@ -292,7 +292,7 @@
     {
       "id": 21,
       "userId": 11,
-      "postImages": "Img/Munchkin/MunchkinsAtTheGrandOpening.webp",
+      "postImages": "img/Munchkin/MunchkinsAtTheGrandOpening.webp",
       "desc": "Grand opening day! Thank you all for coming. 🥳🎀",
       "date": "2025-10-09T11:00:00Z",
       "likes": 512,
@@ -301,7 +301,7 @@
     {
       "id": 22,
       "userId": 12,
-      "postImages": "Img/Nibbles/NibblesPaintingADetailedPortrait.webp",
+      "postImages": "img/Nibbles/NibblesPaintingADetailedPortrait.webp",
       "desc": "Painting a portrait is a delight. 🖌️🐹",
       "date": "2025-11-08T17:45:00Z",
       "likes": 598,
@@ -310,7 +310,7 @@
     {
       "id": 23,
       "userId": 12,
-      "postImages": "Img/Nibbles/NibblesEngagedInACreativeProject.webp",
+      "postImages": "img/Nibbles/NibblesEngagedInACreativeProject.webp",
       "desc": "When inspiration strikes, you follow the whiskers. 🎨✨",
       "date": "2025-10-07T15:28:00Z",
       "likes": 563,
@@ -319,7 +319,7 @@
     {
       "id": 24,
       "userId": 12,
-      "postImages": "Img/Nibbles/NibblesAttendingAArtExhibition.webp",
+      "postImages": "img/Nibbles/NibblesAttendingAArtExhibition.webp",
       "desc": "So much creativity in one room! Feeling so honored to display my works in public. 🖼️💡",
       "date": "2025-10-06T20:05:00Z",
       "likes": 542,
@@ -328,7 +328,7 @@
     {
       "id": 25,
       "userId": 13,
-      "postImages": "Img/SirWhiskers/SirWhiskersStandingTriumphantly.webp",
+      "postImages": "img/SirWhiskers/SirWhiskersStandingTriumphantly.webp",
       "desc": "Another quest complete. Courage and crumbs prevail! ⚔️",
       "date": "2025-11-05T19:41:00Z",
       "likes": 611,
@@ -337,7 +337,7 @@
     {
       "id": 26,
       "userId": 14,
-      "postImages": "Img/Spike/SpikeDiscoveringAHiddenGarden.webp",
+      "postImages": "img/Spike/SpikeDiscoveringAHiddenGarden.webp",
       "desc": "A hidden garden tucked between the roots. Wonders never cease. 🌿🌸",
       "date": "2025-10-04T08:55:00Z",
       "likes": 584,
@@ -346,7 +346,7 @@
     {
       "id": 27,
       "userId": 14,
-      "postImages": "Img/Spike/SpikeNavigatingATinyRaft.webp",
+      "postImages": "img/Spike/SpikeNavigatingATinyRaft.webp",
       "desc": "Sailing through the unknown, chasing sunlight and seeds. ⛵🌻",
       "date": "2025-08-03T18:28:00Z",
       "likes": 567,
@@ -356,8 +356,8 @@
       "id": 28,
       "userId": 14,
       "postImages": [
-        "Img/Spike/SpikeLookingThroughTelescope.webp",
-        "Img/Spike/SpikeOnANightTimeStargazingAdventure.webp"
+        "img/Spike/SpikeLookingThroughTelescope.webp",
+        "img/Spike/SpikeOnANightTimeStargazingAdventure.webp"
       ],
       "desc": "A quiet night under the stars with endless skies for tiny dreams. 🌌",
       "date": "2025-10-02T21:00:00Z",
