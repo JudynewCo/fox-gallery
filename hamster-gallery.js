@@ -26,18 +26,14 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
   }
 
   async loadData() {
-    // 1. Load JSON from /public/hamster.json
     const res = await fetch("/hamster.json");
     const data = await res.json();
 
-    // 2. Fix user profile image URLs
     this.users = data.users.map((user) => ({
       ...user,
-      // hamster.json: "img/Bella/BellaTheArtist.webp" -> serve as "/img/Bella/BellaTheArtist.webp"
       profileImage: "/" + user.profileImage,
     }));
 
-    // 3. Fix post images
     this.posts = data.posts
       .map((post) => ({
         ...post,
@@ -47,7 +43,6 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // 4. Initial visible posts
     this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
   }
 
