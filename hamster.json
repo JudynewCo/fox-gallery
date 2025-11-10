@@ -4,25 +4,25 @@
       "id": 1,
       "name": "Bella",
       "role": "TheArtist",
-      "profileImage": "/img/Bella/BellaTheArtist.webp"
+      "profileImage": "img/Bella/BellaTheArtist.webp"
     },
     {
       "id": 2,
       "name": "Flash",
       "role": "TheSprinter",
-      "profileImage": "/img/Flash/FlashTheSprinter.webp"
+      "profileImage": "img/Flash/FlashTheSprinter.webp"
     },
     {
       "id": 3,
       "name": "Fluffy",
       "role": "TheGourmet",
-      "profileImage": "/img/Fluffy/FluffyTheGourmet.webp"
+      "profileImage": "img/Fluffy/FluffyTheGourmet.webp"
     },
     {
       "id": 4,
       "name": "Gizmo",
       "role": "TheInventor",
-      "profileImage": "/img/Gizmo/GizmoTheInventor.webp"
+      "profileImage": "img/Gizmo/GizmoTheInventor.webp"
     },
     {
       "id": 5,
