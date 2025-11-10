@@ -54,7 +54,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
   // }
   async loadData() {
     // hamster.json is bundled/served next to your component or via public path
-    const res = await fetch(new URL("./hamster.json", import.meta.url).href);
+    const res = await fetch(new URL("hamster.json", import.meta.url).href);
     const data = await res.json();
 
     this.users = data.users.map((user) => ({
