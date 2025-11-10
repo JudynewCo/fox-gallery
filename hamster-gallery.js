@@ -391,7 +391,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           <!-- HEADER -->
           <header class="post-header">
             <img
-              src="${user.profileImage}"
+              src="${new URL(user.profileImage, import.meta.url).href}"
               alt="${user.name}"
               class="profile-img"
             />
@@ -406,13 +406,13 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
             ? html`
                 <div class="carousel">
                   ${post.postImages.map(
-                    (img) => html`<img src="${img}" alt="Post image" />`
+                    (img) => html`<img src="${new URL(img, import.meta.url).href}" alt="Post image" />`
                   )}
                 </div>
               `
             : html`
                 <div class="single-image">
-                  <img src="${post.postImages}" alt="Post image" />
+                  <img src="${new URL(post.postImages, import.meta.url).href}" alt="Post image" />
                 </div>
               `}
 
