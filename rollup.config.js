@@ -17,10 +17,7 @@ export default {
 
   plugins: [
     // ... your existing plugins
-    copy({
-      targets: [{ src: "img/**/*", dest: "dist/img" }],
-      flatten: false,
-    }),
+
     /** Enable using HTML as rollup entrypoint */
     html({
       minify: true,
