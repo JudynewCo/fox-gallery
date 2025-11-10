@@ -24,51 +24,22 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     this.visiblePosts = [];
     this.postsPerLoad = 3;
   }
-  // async loadData() {
-  //   const res = await fetch(new URL("./hamster.json", import.meta.url).href);
-  //   const data = await res.json();
-
-  //   this.users = data.users.map((user) => ({
-  //     ...user,
-  //     profileImage: new URL(user.profileImage, import.meta.url).href,
-  //   }));
-
-  //   this.posts = data.posts
-  //     .map((post) => ({
-  //       ...post,
-  //       postImages: Array.isArray(post.postImages)
-  //         ? post.postImages.map((img) => new URL(img, import.meta.url).href)
-  //         : new URL(post.postImages, import.meta.url).href,
-  //     }))
-  //     .sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  //   this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
-  // }
-
-  // turn "img/..." into "/img/..." unless it's already absolute
-  resolvePath(path) {
-    if (!path) return path;
-    if (path.startsWith("http://") || path.startsWith("https://")) return path;
-    if (path.startsWith("/")) return path;
-    return `/${path}`;
-  }
 
   async loadData() {
-    // this assumes hamster.json is next to this file (as you have it)
     const res = await fetch(new URL("./hamster.json", import.meta.url).href);
     const data = await res.json();
 
     this.users = data.users.map((user) => ({
       ...user,
-      profileImage: this.resolvePath(user.profileImage),
+      profileImage: new URL(user.profileImage, import.meta.url).href,
     }));
 
     this.posts = data.posts
       .map((post) => ({
         ...post,
         postImages: Array.isArray(post.postImages)
-          ? post.postImages.map((img) => this.resolvePath(img))
-          : this.resolvePath(post.postImages),
+          ? post.postImages.map((img) => new URL(img, import.meta.url).href)
+          : new URL(post.postImages, import.meta.url).href,
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -393,100 +364,11 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     this.loadData();
   }
 
-  // // Lit render the HTML
-  // render() {
-  //   return html`
-  //     <div class="container">
-  //       <!-- Sidebar or Horizontal Nav -->
-  //       <nav class="user-nav">
-  //         ${this.users.map(
-  //           (user) => html`
-  //             <div class="user-item">
-  //               <img src="${user.profileImage}" alt="${user.name}" />
-  //               <span>${user.name}</span>
-  //             </div>
-  //           `
-  //         )}
-  //       </nav>
-
-  //       <!-- Post Feed -->
-  //       <main class="post-feed">
-  //         ${this.visiblePosts.map(
-  //           (post) =>
-  //             html`<div class="post-card">${this.renderPost(post)}</div>`
-  //         )}
-  //         <button class="load-more" @click=${this.loadMorePosts}>
-  //           Load More
-  //         </button>
-  //       </main>
-  //     </div>
-  //   `;
-  // }
-
-  // // render a single post
-  // renderPost(post) {
-  //   const user = this.users.find((u) => u.id === post.userId) || {};
-  //   const date = new Date(post.date);
-
-  //   return html`
-  //     <article class="post-card">
-  //       <div class="single-post">
-  //         <!-- HEADER -->
-  //         <header class="post-header">
-  //           <img
-  //             src="${user.profileImage}"
-  //             alt="${user.name}"
-  //             class="profile-img"
-  //           />
-  //           <div class="user-info">
-  //             <h4 class="user-name">${user.name}</h4>
-  //             <p class="user-role">${user.role}</p>
-  //           </div>
-  //         </header>
-
-  //         <!-- POST IMAGE(S) -->
-  //         ${Array.isArray(post.postImages)
-  //           ? html`
-  //               <div class="carousel">
-  //                 ${post.postImages.map(
-  //                   (img) => html`<img src="${img}" alt="Post image" />`
-  //                 )}
-  //               </div>
-  //             `
-  //           : html`
-  //               <div class="single-image">
-  //                 <img src="${post.postImages}" alt="Post image" />
-  //               </div>
-  //             `}
-
-  //         <!-- CAPTION -->
-  //         <p class="caption">${post.desc}</p>
-
-  //         <!-- FOOTER -->
-  //         <footer class="post-actions">
-  //           <span class="time">
-  //             ${date.toLocaleDateString(undefined, {
-  //               month: "short",
-  //               day: "numeric",
-  //             })}
-  //           </span>
-  //           <span class="btns">
-  //             <button class="like-btn" @click=${() => this.toggleLike(post)}>
-  //               ${post.likedByUser ? "❤️" : "🤍"} ${post.likes}
-  //             </button>
-  //             <button class="share-btn" @click=${() => this.sharePost(post)}>
-  //               🔗 share
-  //             </button>
-  //           </span>
-  //         </footer>
-  //       </div>
-  //     </article>
-  //   `;
-  // }
-
+  // Lit render the HTML
   render() {
     return html`
       <div class="container">
+        <!-- Sidebar or Horizontal Nav -->
         <nav class="user-nav">
           ${this.users.map(
             (user) => html`
@@ -498,6 +380,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           )}
         </nav>
 
+        <!-- Post Feed -->
         <main class="post-feed">
           ${this.visiblePosts.map(
             (post) =>
@@ -511,6 +394,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     `;
   }
 
+  // render a single post
   renderPost(post) {
     const user = this.users.find((u) => u.id === post.userId) || {};
     const date = new Date(post.date);
@@ -518,6 +402,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     return html`
       <article class="post-card">
         <div class="single-post">
+          <!-- HEADER -->
           <header class="post-header">
             <img
               src="${user.profileImage}"
@@ -530,6 +415,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
             </div>
           </header>
 
+          <!-- POST IMAGE(S) -->
           ${Array.isArray(post.postImages)
             ? html`
                 <div class="carousel">
@@ -544,8 +430,10 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
                 </div>
               `}
 
+          <!-- CAPTION -->
           <p class="caption">${post.desc}</p>
 
+          <!-- FOOTER -->
           <footer class="post-actions">
             <span class="time">
               ${date.toLocaleDateString(undefined, {
