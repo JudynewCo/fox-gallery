@@ -31,15 +31,15 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
 
     this.users = data.users.map((user) => ({
       ...user,
-      profileImage: "/" + user.profileImage,
+      profileImage:new URL("/" + user.profileImage, import.meta.url),
     }));
 
     this.posts = data.posts
       .map((post) => ({
         ...post,
         postImages: Array.isArray(post.postImages)
-          ? post.postImages.map((img) => "/" + img)
-          : "/" + post.postImages,
+          ? post.postImages.map((img) => new URL("/" + img, import.meta.url))
+          : new URL("/" + post.postImages, import.meta.url),
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
