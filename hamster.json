@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Bella",
       "role": "TheArtist",
-      "profileImage": "img/Bella/BellaTheArtist.webp"
+      "profileImage": "./img/Bella/BellaTheArtist.webp"
     },
     {
       "id": 2,
       "name": "Flash",
       "role": "TheSprinter",
-      "profileImage": "img/Flash/FlashTheSprinter.webp"
+      "profileImage": "./img/Flash/FlashTheSprinter.webp"
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "id": 5,
       "name": "Hammy",
       "role": "TheExplorer",
-      "profileImage": "/img/Hammy/HammyTheExplorer.webp"
+      "profileImage": "img/Hammy/HammyTheExplorer.webp"
     },
     {
       "id": 6,

@@ -42,9 +42,6 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
-    // this.users = data.users;
-    // this.posts = data.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    // this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
   }
 
   loadMorePosts() {
