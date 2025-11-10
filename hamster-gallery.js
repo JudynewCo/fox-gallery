@@ -27,9 +27,24 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
   async loadData() {
     const res = await fetch(new URL("./hamster.json", import.meta.url).href);
     const data = await res.json();
-    this.users = data.users;
-    this.posts = data.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    this.users = data.users.map((user) => ({
+      ...user,
+      profileImage: new URL(user.profileImage, import.meta.url).href,
+    }));
+
+    this.posts = data.posts
+      .map((post) => ({
+        ...post,
+        postImages: Array.isArray(post.postImages)
+          ? post.postImages.map((img) => new URL(img, import.meta.url).href)
+          : new URL(post.postImages, import.meta.url).href,
+      }))
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+
     this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
+    // this.users = data.users;
+    // this.posts = data.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
   }
 
   loadMorePosts() {
@@ -359,10 +374,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           ${this.users.map(
             (user) => html`
               <div class="user-item">
-                <img
-                  src=${new URL(`./${user.profileImage}`, import.meta.url).href}
-                  alt="${user.name}"
-                />
+                <img src="${user.profileImage}" alt="${user.name}" />
                 <span>${user.name}</span>
               </div>
             `
@@ -394,8 +406,9 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           <!-- HEADER -->
           <header class="post-header">
             <img
-              src=${new URL(user.profileImage, import.meta.url).href}
+              src="${user.profileImage}"
               alt="${user.name}"
+              class="profile-img"
             />
             <div class="user-info">
               <h4 class="user-name">${user.name}</h4>
@@ -408,20 +421,13 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
             ? html`
                 <div class="carousel">
                   ${post.postImages.map(
-                    (img) =>
-                      html`<img
-                        src=${new URL(post.postImages, import.meta.url).href}
-                        alt="Post image"
-                      />`
+                    (img) => html`<img src="${img}" alt="Post image" />`
                   )}
                 </div>
               `
             : html`
                 <div class="single-image">
-                  <img
-                    src=${new URL(post.postImages, import.meta.url).href}
-                    alt="Post image"
-                  />
+                  <img src="${post.postImages}" alt="Post image" />
                 </div>
               `}
 
