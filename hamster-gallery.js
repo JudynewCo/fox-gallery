@@ -25,7 +25,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     this.postsPerLoad = 3;
   }
   async loadData() {
-    const res = await fetch("./data/hamster.json");
+    const res = await fetch("public/hamster.json");
     const data = await res.json();
     this.users = data.users;
     this.posts = data.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -218,6 +218,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
           display: block;
           font-size: var(--ddd-font-size-m);
           background: var(--ddd-theme-primary);
+
           width: stretch;
           border: var(--ddd-border-sm);
           border-radius: var(--ddd-radius-md);
