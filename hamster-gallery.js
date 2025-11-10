@@ -27,11 +27,11 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
 
 
   async loadData() {
-    const res = await fetch(new URL("public/hamster.json", import.meta.url).href);
+    const res = await fetch(new URL("./public/hamster.json", import.meta.url).href);
     const data = await res.json();
     this.users = data.users.map((user) => ({
       ...user,
-      profileImage: new URL('public/' + user.profileImage, import.meta.url).href,
+      profileImage: new URL('./public/' + user.profileImage, import.meta.url).href,
     }));
 
     this.posts = data.posts
@@ -39,7 +39,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
         ...post,
         postImages: Array.isArray(post.postImages)
           ? post.postImages.map((img) => new URL('public/' + img, import.meta.url).href)
-          : new URL('public/' + post.postImages, import.meta.url).href,
+          : new URL('./public/' + post.postImages, import.meta.url).href,
       }))
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
