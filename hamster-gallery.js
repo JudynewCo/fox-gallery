@@ -410,7 +410,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
                   ${post.postImages.map(
                     (img) =>
                       html`<img
-                        src=${new URL(img, import.meta.url).href}
+                        src=${new URL(post.postImages, import.meta.url).href}
                         alt="Post image"
                       />`
                   )}

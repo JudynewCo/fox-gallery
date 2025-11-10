@@ -90,7 +90,7 @@
     {
       "id": 1,
       "userId": 1,
-      "postImages": "/img/Bella/BellaDeeplyFocused.webp",
+      "postImages": "./img/Bella/BellaDeeplyFocused.webp",
       "desc": "Every brushstroke tells a tiny story. 🎨🐹",
       "date": "2025-09-06T15:32:00Z",
       "likes": 482,
@@ -99,7 +99,7 @@
     {
       "id": 2,
       "userId": 1,
-      "postImages": "/img/Bella/BellaNewPaintingTechnique.webp",
+      "postImages": "./img/Bella/BellaNewPaintingTechnique.webp",
       "desc": "Tried a new painting technique today with messy paws and a happy heart! 💕",
       "date": "2025-11-04T19:10:00Z",
       "likes": 537,
