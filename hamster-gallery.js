@@ -24,30 +24,59 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
     this.visiblePosts = [];
     this.postsPerLoad = 3;
   }
-  async loadData() {
-    const res = await fetch(new URL("./hamster.json", import.meta.url).href);
-    const data = await res.json();
+  // async loadData() {
+  //   const res = await fetch(new URL("./hamster.json", import.meta.url).href);
+  //   const data = await res.json();
 
-    // Get the base path where this module is located
-    const basePath = new URL("./", import.meta.url).href;
+  //   this.users = data.users.map((user) => ({
+  //     ...user,
+  //     profileImage: new URL(user.profileImage, import.meta.url).href,
+  //   }));
 
-    this.users = data.users.map((user) => ({
-      ...user,
-      profileImage: new URL(user.profileImage, basePath).href,
-    }));
+  //   this.posts = data.posts
+  //     .map((post) => ({
+  //       ...post,
+  //       postImages: Array.isArray(post.postImages)
+  //         ? post.postImages.map((img) => new URL(img, import.meta.url).href)
+  //         : new URL(post.postImages, import.meta.url).href,
+  //     }))
+  //     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    this.posts = data.posts
-      .map((post) => ({
-        ...post,
-        postImages: Array.isArray(post.postImages)
-          ? post.postImages.map((img) => new URL(img, basePath).href)
-          : new URL(post.postImages, basePath).href,
-      }))
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
+  //   this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
+  // }
+async loadData() {
+  const jsonUrl = new URL("./hamster.json", import.meta.url).href;
+  console.log("🐹 JSON URL:", jsonUrl);
+  console.log("🐹 import.meta.url:", import.meta.url);
+  
+  const res = await fetch(jsonUrl);
+  const data = await res.json();
+  
+  this.users = data.users.map((user) => ({
+    ...user,
+    profileImage: new URL(`./${user.profileImage}`, import.meta.url).href,
+  }));
 
-    this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
+  // Log the first user's image path
+  if (this.users.length > 0) {
+    console.log("🐹 First user profile image:", this.users[0].profileImage);
   }
 
+  this.posts = data.posts
+    .map((post) => ({
+      ...post,
+      postImages: Array.isArray(post.postImages)
+        ? post.postImages.map((img) => {
+            const imgUrl = new URL(`./${img}`, import.meta.url).href;
+            console.log("🐹 Post image:", img, "→", imgUrl);
+            return imgUrl;
+          })
+        : new URL(`./${post.postImages}`, import.meta.url).href,
+    }))
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  this.visiblePosts = this.posts.slice(0, this.postsPerLoad);
+}
   loadMorePosts() {
     const next = this.visiblePosts.length + this.postsPerLoad;
     this.visiblePosts = this.posts.slice(0, next);
