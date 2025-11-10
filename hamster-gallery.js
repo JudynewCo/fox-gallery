@@ -360,7 +360,7 @@ export class HamsterGallery extends DDDSuper(I18NMixin(LitElement)) {
             (user) => html`
               <div class="user-item">
                 <img
-                  src=${new URL(user.profileImage, import.meta.url).href}
+                  src=${new URL(`./${user.profileImage}`, import.meta.url).href}
                   alt="${user.name}"
                 />
                 <span>${user.name}</span>
